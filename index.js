@@ -11,7 +11,12 @@ const app = express();
 //...........................DB connect here...................
 connectDB();
 
-app.use(cors());
+app.use(cors({  
+  origin: "https://stock-portfolio-tracker-frontend.vercel.app", 
+  credentials: true,
+  methods:["GET","POST","PUT","PATCH","DELETE"],
+  exposedHeaders:["Authorization"],
+}));
 app.use(express.json());
 
 //...........................Routes here......................
